@@ -1,6 +1,6 @@
 # How to run E-Commerce Website
 ## ** Running the E-commerce Website  **
-<br></br>
+
 Step-1 -> Git: Installed on your system for cloning the repository.
 <br></br>
 Step-2 -> Open your terminal or command prompt.
@@ -8,7 +8,6 @@ Step-2 -> Open your terminal or command prompt.
 Step-3 -> Navigate to the desired directory:
 <br></br>
 &nbsp;     **   Bash   **
-<br></br>
  &nbsp;   **   "cd path/to/desired/directory"   **
 
 Step-4 -> Clone the repository:
