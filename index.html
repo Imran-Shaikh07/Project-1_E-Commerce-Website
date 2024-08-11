@@ -66,11 +66,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#Jwellery-tab">Bracelets</a></li>
                                 <li><a class="dropdown-item" href="#ring-tab">Rings</a></li>
-                                <li><a class="dropdown-item" href="#earings-tab">Earings</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+
                             </ul>
                         </li>
                     </ul>
@@ -197,6 +193,26 @@
                     </div>
                 </div>
                 <div class="col-12">
+                    <br>
+                    <form id="filter-form" class="filter-form">
+                        <label for="category">Category:</label>
+                        <input type="text" id="category" name="category">
+                        
+                        <label for="minPrice">Min Price:</label>
+                        <input type="number" id="minPrice" name="minPrice" step="0.01">
+                        
+                        <label for="maxPrice">Max Price:</label>
+                        <input type="number" id="maxPrice" name="maxPrice" step="0.01">
+                        
+                        <label for="sort">Price:</label>
+                        <select id="sort" name="sort">
+                            <option value="">None</option>
+                            <option value="asc">Low-To-High</option>
+                            <option value="desc">High-To-Low</option>
+                        </select>
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                    <br>
                     <ul class="nav-tabs mb-3" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="Jwellery-tab" data-bs-toggle="tab"
@@ -216,21 +232,21 @@
                         <div class="tab-pane fade show active" id="jwellery" role="tabpanel"
                             aria-labelledby="Jwellery-tab">
                             <div class="row">
-                                <div class="col-md-3 col-sm-6 mb-3">
-                                    <div class="item-product">
+                                <div class="col-md-3 col-sm-6 mb-3" data-id="1" data-price="775">
+                                    <div class="item-product" >
                                         <a href="#" class="product-thumb-link">
                                             <img src="Images/Product-img/Bracelet-1.jpg" class="img-fluid" alt="">
                                         </a>
                                     </div>
                                     <div class="product-info">
                                         <div class="d-flex justify-content-between py-3">
-                                            <a href="#" class="cat-parent">Women</a>
+                                            <a href="#" class="cat-parent" style="color: #fff;">Women</a>
                                             <a href="#" class="wishlist">
                                                 <i class="fas fa-heart"></i>
                                             </a>
                                         </div>
                                         <h4 class="product-title">
-                                            <a href="#">Titanium ring in grd palladium finish metal</a>
+                                            <a href="#" style="color: yellow;">Titanium ring in grd palladium finish metal</a>
                                         </h4>
                                         <div class="product-price">
                                             <ins><span class="money text-white">₹ 775.00</span></ins>
@@ -242,6 +258,8 @@
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
+                                            <p>Rating: 4.7</p>
+                                            <a href="#" class="review-btn main-btn" data-id="2">Write a Review</a>
                                             </div>
                                             <div class="basket">
                                                 <a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -249,21 +267,21 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3 col-sm-6 mb-3">
+                                <div class="col-md-3 col-sm-6 mb-3" data-id="2" data-price="960.56">
                                     <div class="item-product">
                                         <a href="#" class="product-thumb-link">
                                             <img src="Images/Product-img/Bracelet-2.jpg" class="img-fluid" alt="">
                                         </a>
                                     </div>
-                                    <div class="product-info">
+                                    <div class="product-info" >
                                         <div class="d-flex justify-content-between py-3">
-                                            <a href="#" class="cat-parent">Women</a>
+                                            <a href="#" class="cat-parent" style="color: #fff;">Women</a>
                                             <a href="#" class="wishlist">
                                                 <i class="fas fa-heart"></i>
                                             </a>
                                         </div>
                                         <h4 class="product-title">
-                                            <a href="#">1pc Fashionable Elegant Luxury Original Stainless Steel & 
+                                            <a href="#" style="color: yellow;">1pc Fashionable Elegant Luxury Original Stainless Steel & 
                                                 Rhinestone Decorated Flower Aesthetics Cuff Bracelet For Women & Girls, Bridesmaid Gift</a>
                                         </h4>
                                         <div class="product-price">
@@ -276,6 +294,8 @@
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
+                                                <p>Rating: 4.6</p>
+                                            <a href="#" class="review-btn main-btn" data-id="2">Write a Review</a>
                                             </div>
                                             <div class="basket">
                                                 <a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -283,7 +303,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3 col-sm-6 mb-3">
+                                <div class="col-md-3 col-sm-6 mb-3" data-id="3" data-price="839,910">
                                     <div class="item-product">
                                         <a href="#" class="product-thumb-link">
                                             <img src="Images/Product-img/Bracelet-3.jpg" class="img-fluid" alt="">
@@ -291,13 +311,13 @@
                                     </div>
                                     <div class="product-info">
                                         <div class="d-flex justify-content-between py-3">
-                                            <a href="#" class="cat-parent">Women</a>
+                                            <a href="#" class="cat-parent" style="color: #fff;">Women</a>
                                             <a href="#" class="wishlist">
                                                 <i class="fas fa-heart"></i>
                                             </a>
                                         </div>
                                         <h4 class="product-title">
-                                            <a href="#">5 Carat, Unique Diamond Tennis Bracelet, Natural diamond 
+                                            <a href="#" style="color:yellow;">5 Carat, Unique Diamond Tennis Bracelet, Natural diamond 
                                                 zipper bracelet, Luxury women diamond bracelet, Fine anniversary diamond</a>
                                         </h4>
                                         <div class="product-price">
@@ -310,6 +330,8 @@
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
+                                                <p>Rating: 4.3</p>
+                                            <a href="#" class="review-btn main-btn" data-id="2">Write a Review</a>
                                             </div>
                                             <div class="basket">
                                                 <a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -317,7 +339,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3 col-sm-6 mb-3">
+                                <div class="col-md-3 col-sm-6 mb-3" data-id="4" data-price="1,424.16">
                                     <div class="item-product">
                                         <a href="#" class="product-thumb-link">
                                             <img src="Images/Product-img/Bracelet-4.jpg " class="img-fluid" alt="">
@@ -325,13 +347,13 @@
                                     </div>
                                     <div class="product-info">
                                         <div class="d-flex justify-content-between py-3">
-                                            <a href="#" class="cat-parent">Women</a>
+                                            <a href="#" class="cat-parent" style="color: #fff;">Women</a>
                                             <a href="#" class="wishlist">
                                                 <i class="fas fa-heart"></i>
                                             </a>
                                         </div>
                                         <h4 class="product-title">
-                                            <a href="#">Fancy Diamond Bracelet Ladies 1.58ct tw - 14kt Gold</a>
+                                            <a href="#" style="color: yellow;">Fancy Diamond Bracelet Ladies 1.58ct tw - 14kt Gold</a>
                                         </h4>
                                         <div class="product-price">
                                             <ins><span class="money text-white">₹ 1,424.16</span></ins>
@@ -343,6 +365,8 @@
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
+                                                <p>Rating: 4.5</p>
+                                            <a href="#" class="review-btn main-btn" data-id="2">Write a Review</a>
                                             </div>
                                             <div class="basket">
                                                 <a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -350,12 +374,30 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="review-form" id="review-form">
+                                    <hr>
+                                    <h2>Submit Your Review</h2>
+                                    <form id="reviewForm">
+                                        <input type="hidden" id="productId" name="productId" value="">
+                                        
+                                        <label for="reviewText">Review:</label>
+                                        <textarea id="reviewText" name="reviewText" rows="5" required></textarea>
+                                        
+                                        <label for="rating">Rating (1-5):</label>
+                                        <input type="number" id="rating" name="rating" min="1" max="5" required>
+
+                                        <button class="btn btn-outline-success" type="submit">Submit Review</button>
+                                        <button class="btn btn-outline-success" type="button" id="cancelReview">Cancel</button>
+                                    </form>
+                                </div>
+                            
                             </div>
                         </div>
 
                         <div class="tab-pane fade" id="ring" role="tabpanel" aria-labelledby="ring-tab">
                             <div class="row">
-                                <div class="col-md-3 col-sm-6 mb-3">
+                                <div class="col-md-3 col-sm-6 mb-3" data-id="5" data-price="536">
                                     <div class="item-product">
                                         <a href="#" class="product-thumb-link">
                                             <img src="Images/Product-img/r-1.jpg" class="img-fluid" alt="">
@@ -363,13 +405,13 @@
                                     </div>
                                     <div class="product-info">
                                         <div class="d-flex justify-content-between py-3">
-                                            <a href="#" class="cat-parent">Women</a>
+                                            <a href="#" class="cat-parent" style="color: #fff;">Women</a>
                                             <a href="#" class="wishlist">
                                                 <i class="fas fa-heart"></i>
                                             </a>
                                         </div>
                                         <h4 class="product-title">
-                                            <a href="#">Light Luxury 925 Sterling Silver Sparkling
+                                            <a href="#" style="color: yellow;">Light Luxury 925 Sterling Silver Sparkling
                                                  Moissanite Diamond Cut Engagement Ring Fine Jewelry</a>
                                         </h4>
                                         <div class="product-price">
@@ -382,6 +424,8 @@
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
+                                                <p>Rating: 4.2</p>
+                                            <a href="#" class="review-btn main-btn" data-id="2">Write a Review</a>
                                             </div>
                                             <div class="basket">
                                                 <a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -389,7 +433,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3 col-sm-6 mb-3">
+                                <div class="col-md-3 col-sm-6 mb-3" data-id="6" data-price="896">
                                     <div class="item-product">
                                         <a href="#" class="product-thumb-link">
                                             <img src="Images/Product-img/r-2.jpg" class="img-fluid" alt="">
@@ -397,13 +441,13 @@
                                     </div>
                                     <div class="product-info">
                                         <div class="d-flex justify-content-between py-3">
-                                            <a href="#" class="cat-parent">Women</a>
+                                            <a href="#" class="cat-parent" style="color: #fff;">Women</a>
                                             <a href="#" class="wishlist">
                                                 <i class="fas fa-heart"></i>
                                             </a>
                                         </div>
                                         <h4 class="product-title">
-                                            <a href="#">925 Silver Jewelry Ring for Women Sapphire Zircon Gemstone 
+                                            <a href="#" style="color:yellow;">925 Silver Jewelry Ring for Women Sapphire Zircon Gemstone 
                                                 Gold Color Finger Rings Wedding Engagement Party Accessory Wholesale</a>
                                         </h4>
                                         <div class="product-price">
@@ -415,7 +459,8 @@
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
+                                                <p>Rating: 4.0</p>
+                                            <a href="#" class="review-btn main-btn" data-id="2">Write a Review</a>
                                             </div>
                                             <div class="basket">
                                                 <a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -423,7 +468,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3 col-sm-6 mb-3">
+                                <div class="col-md-3 col-sm-6 mb-3" data-id="7" data-price="569">
                                     <div class="item-product">
                                         <a href="#" class="product-thumb-link">
                                             <img src="Images/Product-img/r-3.jpg" class="img-fluid" alt="">
@@ -431,13 +476,13 @@
                                     </div>
                                     <div class="product-info">
                                         <div class="d-flex justify-content-between py-3">
-                                            <a href="#" class="cat-parent">Women</a>
+                                            <a href="#" class="cat-parent" style="color: #fff;">Women</a>
                                             <a href="#" class="wishlist">
                                                 <i class="fas fa-heart"></i>
                                             </a>
                                         </div>
                                         <h4 class="product-title">
-                                            <a href="#">Silver Rings Cubic Zirconia Trendy Jewelry</a>
+                                            <a href="#" style="color:yellow;">Silver Rings Cubic Zirconia Trendy Jewelry</a>
                                         </h4>
                                         <div class="product-price">
                                             <ins><span class="money text-white">₹ 569</span></ins>
@@ -449,6 +494,8 @@
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
+                                                <p>Rating: 4.7</p>
+                                            <a href="#" class="review-btn main-btn" data-id="2">Write a Review</a>
                                             </div>
                                             <div class="basket">
                                                 <a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -456,7 +503,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3 col-sm-6 mb-3">
+                                <div class="col-md-3 col-sm-6 mb-3" data-id="8" data-price="2,839">
                                     <div class="item-product">
                                         <a href="#" class="product-thumb-link">
                                             <img src="Images/Product-img/r-4.jpg" class="img-fluid" alt="">
@@ -464,13 +511,13 @@
                                     </div>
                                     <div class="product-info">
                                         <div class="d-flex justify-content-between py-3">
-                                            <a href="#" class="cat-parent">Women</a>
+                                            <a href="#" class="cat-parent" style="color: #fff;">Women</a>
                                             <a href="#" class="wishlist">
                                                 <i class="fas fa-heart"></i>
                                             </a>
                                         </div>
                                         <h4 class="product-title">
-                                            <a href="#">HanYu Jewelry 925 Sterling Silver Women Engagement
+                                            <a href="#"style="color: yellow;">HanYu Jewelry 925 Sterling Silver Women Engagement
                                                  Rings 1ct 2ct 3ct D Color Moissanite Diamond Rings with GRA Certificate</a>
                                         </h4>
                                         <div class="product-price">
@@ -483,6 +530,8 @@
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
+                                                <p>Rating: 4.7</p>
+                                            <a href="#" class="review-btn main-btn" data-id="2">Write a Review</a>
                                             </div>
                                             <div class="basket">
                                                 <a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -495,7 +544,7 @@
 
                         <div class="tab-pane fade" id="earings" role="tabpanel" aria-labelledby="earings-tab">
                             <div class="row">
-                                <div class="col-md-3 col-sm-6 mb-3">
+                                <div class="col-md-3 col-sm-6 mb-3" data-id="9" data-price="850">
                                     <div class="item-product">
                                         <a href="#" class="product-thumb-link">
                                             <img src="Images/Product-img/Earing-1.jpg" class="img-fluid" alt="">
@@ -503,13 +552,13 @@
                                     </div>
                                     <div class="product-info">
                                         <div class="d-flex justify-content-between py-3">
-                                            <a href="#" class="cat-parent">Women</a>
+                                            <a href="#" class="cat-parent" style="color: #fff;">Women</a>
                                             <a href="#" class="wishlist">
                                                 <i class="fas fa-heart"></i>
                                             </a>
                                         </div>
                                         <h4 class="product-title">
-                                            <a href="#">Silver & Rose Gold Chaandbalis/ CZ Chaandbali/ Zirconia Earrings/ 
+                                            <a href="#" style="color: yellow;">Silver & Rose Gold Chaandbalis/ CZ Chaandbali/ Zirconia Earrings/ 
                                                 Indian Earrings/ Pakistani Earrings/ Bollywood Jewelry/ Sabyasachi</a>
                                         </h4>
                                         <div class="product-price">
@@ -522,6 +571,8 @@
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
+                                                <p>Rating: 4.7</p>
+                                            <a href="#" class="review-btn main-btn" data-id="2">Write a Review</a>
                                             </div>
                                             <div class="basket">
                                                 <a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -529,7 +580,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3 col-sm-6 mb-3">
+                                <div class="col-md-3 col-sm-6 mb-3" data-id="10" data-price="950">
                                     <div class="item-product">
                                         <a href="#" class="product-thumb-link">
                                             <img src="Images/Product-img/Earing-2.webp" class="img-fluid" alt="">
@@ -537,13 +588,13 @@
                                     </div>
                                     <div class="product-info">
                                         <div class="d-flex justify-content-between py-3">
-                                            <a href="#" class="cat-parent">Women</a>
+                                            <a href="#" class="cat-parent" style="color: #fff;">Women</a>
                                             <a href="#" class="wishlist">
                                                 <i class="fas fa-heart"></i>
                                             </a>
                                         </div>
                                         <h4 class="product-title">
-                                            <a href="#">SI1/H Pear Diamond Chandelier/Dangle Wedding Earrings 
+                                            <a href="#" style="color: yellow;">SI1/H Pear Diamond Chandelier/Dangle Wedding Earrings 
                                                 14k White Gold</a>
                                         </h4>
                                         <div class="product-price">
@@ -556,6 +607,8 @@
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
+                                                <p>Rating: 4.9</p>
+                                            <a href="#" class="review-btn main-btn" data-id="2">Write a Review</a>
                                             </div>
                                             <div class="basket">
                                                 <a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -563,7 +616,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3 col-sm-6 mb-3">
+                                <div class="col-md-3 col-sm-6 mb-3" data-id="11" data-price="900">
                                     <div class="item-product">
                                         <a href="#" class="product-thumb-link">
                                             <img src="Images/Product-img/Earing-3.webp" class="img-fluid" alt="">
@@ -571,13 +624,13 @@
                                     </div>
                                     <div class="product-info">
                                         <div class="d-flex justify-content-between py-3">
-                                            <a href="#" class="cat-parent">Women</a>
+                                            <a href="#" class="cat-parent" style="color: #fff;">Women</a>
                                             <a href="#" class="wishlist">
                                                 <i class="fas fa-heart"></i>
                                             </a>
                                         </div>
                                         <h4 class="product-title">
-                                            <a href="#">Simulated Diamond Classic Earrings</a>
+                                            <a href="#" style="color: yellow;">Simulated Diamond Classic Earrings</a>
                                         </h4>
                                         <div class="product-price">
                                             <ins><span class="money text-white">₹ 900.00</span></ins>
@@ -589,6 +642,8 @@
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
+                                                <p>Rating: 5.0</p>
+                                            <a href="#" class="review-btn main-btn" data-id="2">Write a Review</a>
                                             </div>
                                             <div class="basket">
                                                 <a href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -596,7 +651,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3 col-sm-6 mb-3">
+                                <div class="col-md-3 col-sm-6 mb-3" data-id="12" data-price="650">
                                     <div class="item-product">
                                         <a href="#" class="product-thumb-link">
                                             <img src="Images/Product-img/Earing-4.jpg" class="img-fluid" alt="">
@@ -604,13 +659,13 @@
                                     </div>
                                     <div class="product-info">
                                         <div class="d-flex justify-content-between py-3">
-                                            <a href="#" class="cat-parent">Women</a>
+                                            <a href="#" class="cat-parent" style="color: #fff;">Women</a>
                                             <a href="#" class="wishlist">
                                                 <i class="fas fa-heart"></i>
                                             </a>
                                         </div>
                                         <h4 class="product-title">
-                                            <a href="#">Wedding Earrings Zirconia Earrings Rose gold Earrings Bridal Earrings Wedding Jewelry 
+                                            <a href="#" style="color: yellow;">Wedding Earrings Zirconia Earrings Rose gold Earrings Bridal Earrings Wedding Jewelry 
                                                 Bridesmaid Earrings Bridal Jewelry Wedding Jewelry Adi</a>
                                         </h4>
                                         <div class="product-price">
@@ -623,6 +678,8 @@
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
                                                 <i class="far fa-star"></i>
+                                                <p>Rating: 4.4</p>
+                                            <a href="#" class="review-btn main-btn" data-id="2">Write a Review</a>
                                             </div>
                                             <div class="basket">
                                                 <a href="#"><i class="fas fa-shopping-basket"></i></a>
