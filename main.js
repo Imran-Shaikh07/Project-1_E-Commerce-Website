@@ -79,3 +79,68 @@ document.addEventListener('DOMContentLoaded', () => {
         reviewForm.style.display = 'none';
     });
 });
+
+//cart
+
+// cart.js
+const cart = [];
+
+document.addEventListener('DOMContentLoaded', () => {
+  const addToCartButtons = document.querySelectorAll('.add-to-cart');
+  
+  addToCartButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const productElement = button.closest('.product');
+      const productId = productElement.getAttribute('data-id');
+      const productName = productElement.querySelector('h2').textContent;
+      const productPrice = parseFloat(productElement.querySelector('span').textContent.replace('Price: $', ''));
+      
+      addToCart(productId, productName, productPrice);
+    });
+  });
+
+  document.getElementById('checkout').addEventListener('click', () => {
+    // Handle checkout logic here
+    // e.g., send cart data to server
+    fetch('/checkout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ cart })
+    }).then(response => response.json())
+      .then(data => {
+        console.log('Checkout successful', data);
+      });
+  });
+});
+
+function addToCart(id, name, price) {
+  const existingProductIndex = cart.findIndex(item => item.id === id);
+
+  if (existingProductIndex > -1) {
+    cart[existingProductIndex].quantity += 1;
+  } else {
+    cart.push({ id, name, price, quantity: 1 });
+  }
+
+  updateCartUI();
+}
+
+function updateCartUI() {
+  const cartItemsElement = document.getElementById('cart-items');
+  const totalPriceElement = document.getElementById('total-price');
+
+  cartItemsElement.innerHTML = '';
+  let total = 0;
+
+  cart.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = `${item.name} x ${item.quantity} - $${item.price * item.quantity}`;
+    cartItemsElement.appendChild(li);
+
+    total += item.price * item.quantity;
+  });
+
+  totalPriceElement.textContent = total.toFixed(2);
+}
