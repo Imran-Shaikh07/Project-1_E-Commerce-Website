@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order History & Tracking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header nav a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        h1 {
+            color: #007bff;
+            text-align: center;
+        }
+
+        .filter-bar {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .filter-bar input, .filter-bar select {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .order-card {
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.2s ease;
+        }
+
+        .order-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .order-card h3 {
+            margin: 0;
+            color: #007bff;
+        }
+
+        .order-card p {
+            margin: 5px 0;
+        }
+
+        .order-status {
+            font-size: 14px;
+            color: #fff;
+            background-color: #28a745;
+            padding: 5px 10px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .order-details {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .order-details h4 {
+            margin-top: 20px;
+            color: #007bff;
+        }
+
+        .order-details ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .order-details ul li {
+            margin: 5px 0;
+        }
+
+        .tracking-timeline {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            position: relative;
+            padding-top: 30px;
+        }
+
+        .tracking-timeline div {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tracking-timeline:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            width: 80%;
+            height: 2px;
+            background-color: #ddd;
+            z-index: 1;
+        }
+
+        .timeline-icon {
+            width: 20px;
+            height: 20px;
+            background-color: #007bff;
+            border-radius: 50%;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: white;
+            margin-left: 15px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <h2><img src="/Images/logo.png" alt=""></h2>
+    </div>
+    <nav>
+        <a href="/index.html">Home</a>
+        <a href="#product">Product</a>
+        <a href="/Registration Form/registration.html">Logout</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>Order History & Tracking</h1>
+
+    <div class="filter-bar">
+        <input type="text" placeholder="Search Orders...">
+        <select>
+            <option>All Orders</option>
+            <option>Delivered</option>
+            <option>Shipped</option>
+            <option>Processing</option>
+        </select>
+    </div>
+
+    <div class="order-card">
+        <h3>Order #ORD96845</h3>
+        <p>Order Date: 2024-08-17 | Total Amount:₹ 2,750.00</p>
+        <p>Status: <span class="order-status">Shipped</span></p>
+        <button onclick="toggleDetails(this)">View Details</button>
+
+        <div class="order-details">
+            <!-- Product List -->
+            <h4>Products:</h4>
+            <ul>
+                <li><img src="/Images/Product-img/Bracelet-3.jpg" alt="Product Image" style="width: 50px; height: 50px;"> Product Name 1 - Quantity: 2 -₹ 750.00</li>
+                <li><img src="/Images/Product-img/necklace-5.jpg" alt="Product Image" style="width: 50px; height: 50px;"> Product Name 2 - Quantity: 1 -₹ 1,250.00</li>
+            </ul>
+
+            <!-- Shipping Information -->
+            <h4>Shipping Information:</h4>
+            <p>Address: VJIT, Ajij Nagar,Hyderabad - 500075</p>
+            <p>Tracking Number: <a href="#">8234553890</a></p>
+
+            <!-- Tracking Timeline -->
+            <div class="tracking-timeline">
+                <div>
+                    <span class="timeline-icon"></span>
+                    <p>Order Placed</p>
+                </div>
+                <div>
+                    <span class="timeline-icon"></span>
+                    <p>Shipped</p>
+                </div>
+                <div>
+                    <span class="timeline-icon"></span>
+                    <p>Out for Delivery</p>
+                </div>
+                <div>
+                    <span class="timeline-icon"></span>
+                    <p>Delivered</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional order cards -->
+
+</div>
+
+<footer>
+    <p>Customer Support | FAQ | Return Policy</p>
+</footer>
+
+<script>
+    function toggleDetails(button) {
+        const details = button.nextElementSibling;
+        details.style.display = details.style.display === 'block' ? 'none' : 'block';
+    }
+</script>
+
+</body>
+</html>
