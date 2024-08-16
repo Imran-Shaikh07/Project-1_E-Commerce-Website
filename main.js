@@ -158,3 +158,28 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { once: true });
   });
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const videoContainer = document.querySelector('.video-container');
+  const playButton = document.querySelector('.play-button');
+  const videoPlaceholder = document.getElementById('video-placeholder');
+
+  playButton.addEventListener('click', function() {
+      const videoId = 'dQw4w9WgXcQ'; // Replace with your YouTube video ID
+      const iframe = document.createElement('iframe');
+
+      iframe.setAttribute('src', `https://youtu.be/NYpkCxyOfWA?si=wHMN_e2C4qOv_ceb`);
+      iframe.setAttribute('width', '100%');
+      iframe.setAttribute('height', '315');
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+      iframe.setAttribute('allowfullscreen', true);
+
+      // Replace the thumbnail with the video player
+      videoPlaceholder.appendChild(iframe);
+
+      // Hide the video container
+      videoContainer.style.display = 'none';
+  });
+});
