@@ -144,3 +144,17 @@ function updateCartUI() {
 
   totalPriceElement.textContent = total.toFixed(2);
 }
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const cartButton = document.querySelector('.add-to-cart');
+
+  cartButton.addEventListener('click', function() {
+    cartButton.classList.add('pulse');
+
+    
+    cartButton.addEventListener('animationend', function() {
+      cartButton.classList.remove('pulse');
+    }, { once: true });
+  });
+});
