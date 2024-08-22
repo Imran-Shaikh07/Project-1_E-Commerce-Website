@@ -3,82 +3,289 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title><style>
-       
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
+    <title>Jewelry Store Payment</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
 
-#checkout-form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
 
-#checkout-form input[type="text"] {
-    margin-bottom: 15px;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: calc(100% - 22px);
-}
+        header h1 {
+            margin: 0;
+        }
 
-#card-element {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 15px;
-}
+        .payment-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-#submit-button {
-    background-color: #28a745;
-    color: white;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+        .payment-container h2 {
+            text-align: center;
+            color: #333;
+        }
 
-#submit-button:hover {
-    background-color: #218838;
-}
+        .form-group {
+            margin-bottom: 15px;
+        }
 
-#submit-button:disabled {
-    background-color: #aaa;
-    cursor: not-allowed;
-}
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
 
-#error-message {
-    color: #e3342f;
-    margin-top: 10px;
-}
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
 
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #333;
+            outline: none;
+        }
+
+        .form-group .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .payment-methods {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .payment-methods label {
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+        .payment-methods input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .card-details {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .card-details .form-group {
+            margin-bottom: 15px;
+        }
+
+        .summary-container {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .summary-container h3 {
+            text-align: center;
+            color: #555;
+        }
+
+        .summary-container p {
+            font-size: 18px;
+            color: #333;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .summary-container p span {
+            font-weight: bold;
+        }
+
+        #pay-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #pay-btn:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
     </style>
 </head>
 <body>
-    <form id="checkout-form">
-        <input type="text" id="cardholder-name" placeholder="Cardholder's Name">
-        <div id="card-element"></div> 
-        <button id="submit-button">Pay</button>
-        <div id="error-message"></div> 
-      </form>      
+    <header>
+        <img src="/Images/logo.png" alt="">
+    </header>
 
-    <script src="https://js.stripe.com/v3/"></script>
-      <script src="/demo/script.js"></script>
+    <div class="payment-container">
+        <h2>Complete Your Purchase</h2>
+
+        <div class="form-group">
+            <label for="country">Country</label>
+            <select id="country">
+                <option value="">Select your country</option>
+                <option value="US">India</option>
+                <option value="US">United States</option>
+                <option value="CA">Canada</option>
+                <option value="UK">United Kingdom</option>
+                <option value="AU">Australia</option>
+            </select>
+            <div class="error" id="country-error"></div>
+        </div>
+
+        <div class="payment-methods">
+            <label><input type="radio" name="payment-method" value="phonepe">UPI Payment</label>
+            <label><input type="radio" name="payment-method" value="phonepe">PhonePe</label>
+            <label><input type="radio" name="payment-method" value="googlepay">Google Pay</label>
+            <label><input type="radio" name="payment-method" value="paytm">Paytm</label>
+            <label><input type="radio" name="payment-method" value="onlinepayment">Online Payment (Card)</label>
+            <label><input type="radio" name="payment-method" value="cod">Cash on Delivery</label>
+        </div>
+
+        <div class="card-details">
+            <div class="form-group">
+                <label for="cardholder-name">Cardholder Name</label>
+                <input type="text" id="cardholder-name" placeholder="Enter your name">
+                <div class="error" id="name-error"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="card-number">Card Number</label>
+                <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+                <div class="error" id="card-error"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="expiry-date">Expiry Date</label>
+                <input type="text" id="expiry-date" placeholder="MM/YY">
+                <div class="error" id="expiry-error"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" placeholder="123">
+                <div class="error" id="cvv-error"></div>
+            </div>
+        </div>
+
+        <div class="summary-container">
+            <h3>Order Summary</h3>
+            <p>Subtotal: <span>₹2000</span></p>
+            <p>Shipping: <span>₹50</span></p>
+            <p>Total: <span id="total-amount">₹2050</span></p>
+        </div>
+
+        <button id="pay-btn">Pay ₹2050</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2024. CODE4IMRAN. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const paymentMethods = document.querySelectorAll('input[name="payment-method"]');
+            const cardDetails = document.querySelector('.card-details');
+            const payBtn = document.getElementById('pay-btn');
+
+            paymentMethods.forEach(method => {
+                method.addEventListener('change', () => {
+                    if (method.value === 'onlinepayment') {
+                        cardDetails.style.display = 'block';
+                    } else {
+                        cardDetails.style.display = 'none';
+                    }
+
+                    if (method.value === 'cod') {
+                        payBtn.textContent = 'Place Order';
+                    } else {
+                        payBtn.textContent = `Pay ${document.getElementById('total-amount').textContent}`;
+                    }
+                });
+            });
+
+            payBtn.addEventListener('click', () => {
+                let isValid = true;
+                const selectedMethod = document.querySelector('input[name="payment-method"]:checked');
+
+                if (!selectedMethod) {
+                    alert('Please select a payment method.');
+                    return;
+                }
+
+                // If the selected method is "online payment", validate card details
+                if (selectedMethod.value === 'onlinepayment') {
+                    const name = document.getElementById('cardholder-name').value.trim();
+                    const cardNumber = document.getElementById('card-number').value.trim();
+                    const expiryDate = document.getElementById('expiry-date').value.trim();
+                    const cvv = document.getElementById('cvv').value.trim();
+
+                    document.getElementById('name-error').textContent = '';
+                    document.getElementById('card-error').textContent = '';
+                    document.getElementById('expiry-error').textContent = '';
+                    document.getElementById('cvv-error').textContent = '';
+
+                    if (name === '') {
+                        document.getElementById('name-error').textContent = 'Cardholder name is required';
+                        isValid = false;
+                    }
+
+                    if (cardNumber === '' || !/^\d{16}$/.test(cardNumber.replace(/\s+/g, ''))) {
+                        document.getElementById('card-error').textContent = 'Enter a valid 16-digit card number';
+                        isValid = false;
+                    }
+
+                    if (expiryDate === '' || !/^\d{2}\/\d{2}$/.test(expiryDate)) {
+                        document.getElementById('expiry-error').textContent = 'Enter a valid expiry date (MM/YY)';
+                        isValid = false;
+                    }
+
+                    if (cvv === '' || !/^\d{3}$/.test(cvv)) {
+                        document.getElementById('cvv-error').textContent = 'Enter a valid 3-digit CVV';
+                        isValid = false;
+                    }
+                }
+
+                if (isValid) {
+                    alert('Payment processed successfully!');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
